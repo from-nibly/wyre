@@ -1,11 +1,11 @@
 [![Build Status](https://drone.io/github.com/from-nibly/wyre/status.png)](https://drone.io/github.com/from-nibly/wyre/latest)
 
-#wyre
+# wyre
 wyre is a websocket library that will change the way you use websockets.  Wyre allows you to send messages that require a response message to be sent. Wyre also allows you to filter messages based on the type of message which you specify.
 
-#Getting Started
+# Getting Started
 
-##Server
+## Server
 ```JAVASCRIPT
 var Server = require('wyre').Server;
 var server = new Server();
@@ -16,28 +16,28 @@ server.listen({ port : 1234}, function(err) {
 });
 ```
 
-###here we can listen for new connections
+### here we can listen for new connections
 ```JAVASCRIPT
 server.on('connection', function(connection) {
     console.log('connection recieved');
 });
 ```
 
-###here we can listen for incoming messages
+### here we can listen for incoming messages
 ```JAVASCRIPT
 server.on('message', function(context) {
     console.log('got a message', context.message)
 });
 ```
 
-###here we can listen for messages where the message type is a tweet
+### here we can listen for messages where the message type is a tweet
 ```JAVASCRIPT
 server.on('message', 'tweet', function(context) {
     console.log('got a tweet', context.message);
 });
 ```
 
-##Client
+## Client
 Clients are very similar but you connect to a server differently
 ```JAVASCRIPT
 var Client = require('wyre').Client;
@@ -54,5 +54,5 @@ client.connect('ws://localhost:1234', function(err, connection) {
 });
 ```
 
-##READY FOR MORE?
+## READY FOR MORE?
 Head over to our [ReadTheDocs](http://wyre.readthedocs.org/en/latest/) for more information.
