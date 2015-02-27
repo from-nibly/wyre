@@ -1,0 +1,26 @@
+{
+  "name": "wyre",
+  "version": "0.0.1",
+  "description": "The new way to do websockets",
+  "repository": "http://github.com/from-nibly/wyre",
+  "dependencies": {
+    "jpromise": "1.0.8",
+    "uuid": "2.0.1",
+    "ws": "0.7.1"
+  },
+  "browser": "./lib/browser.js",
+  "main": "./lib/index.js",
+  "devDependencies": {
+    "browserify": "8.1.3",
+    "mocha": "2.1.0",
+    "open": "0.0.5",
+    "uglify-js": "^2.4.16"
+  },
+  "scripts": {
+    "browserify": "./node_modules/.bin/browserify -r ./lib/browser.js:wyre > ./dist/wyre.js",
+    "uglify": "./node_modules/.bin/uglifyjs ./dist/wyre.js > ./dist/wyre.min.js",
+    "prepublish": "npm run browserify && npm run uglify",
+    "browserTest": "node test/browser/setup.js",
+    "test": "./node_modules/.bin/mocha -R nyan --recursive test/server"
+  }
+}
