@@ -55,4 +55,4 @@ client.connect('ws://localhost:1234', function(err, connection) {
 ```
 
 ##READY FOR MORE?
-Head over to our [ReadTheDocs](./docs/index.md) for more information.
+Head over to our [ReadTheDocs](http://wyre.readthedocs.org/en/latest/) for more information.
