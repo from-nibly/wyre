@@ -6,7 +6,7 @@ wyre is a websocket library that will change the way you use websockets.  Wyre a
 # Getting Started
 
 ## Server
-```JAVASCRIPT
+```js
 var Server = require('wyre').Server;
 var server = new Server();
 
@@ -17,21 +17,21 @@ server.listen({ port : 1234}, function(err) {
 ```
 
 ### here we can listen for new connections
-```JAVASCRIPT
+```js
 server.on('connection', function(connection) {
     console.log('connection recieved');
 });
 ```
 
 ### here we can listen for incoming messages
-```JAVASCRIPT
+```js
 server.on('message', function(context) {
     console.log('got a message', context.message)
 });
 ```
 
 ### here we can listen for messages where the message type is a tweet
-```JAVASCRIPT
+```js
 server.on('message', 'tweet', function(context) {
     console.log('got a tweet', context.message);
 });
@@ -39,7 +39,7 @@ server.on('message', 'tweet', function(context) {
 
 ## Client
 Clients are very similar but you connect to a server differently
-```JAVASCRIPT
+```js
 var Client = require('wyre').Client;
 var client = new Client();
 
