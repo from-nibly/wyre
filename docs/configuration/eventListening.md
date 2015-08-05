@@ -11,7 +11,7 @@ depending on what you put in for event the event listener will be called at diff
 Is called whenever a new client connects to the server.  This event is only fired on the serverside as the `connect()` function handles the connection with the client.
 
 Example:
-```JAVASCRIPT
+```js
 server.on('connection', function(connection) {
   console.log('new client connected!', connection.id);
 });
@@ -22,7 +22,7 @@ server.on('connection', function(connection) {
 Is called on either the server or the client whenever a message is recieved with a `direction` property that is either `undefined` or `'MESSAGE'`
 
 Example:
-```JAVASCRIPT
+```js
 server.on('message', function(context) {
   console.log('recieved a new message', context.message);
 });
@@ -33,7 +33,7 @@ server.on('message', function(context) {
 Is called on either the server or the client whenever a request is recieved with a `direction` property that is `'REQUEST'`
 
 Example:
-```JAVASCRIPT
+```js
 server.on('message', function(context) {
   console.log('recieved a new message', context.message);
 });
@@ -44,7 +44,7 @@ server.on('message', function(context) {
 Is called on both the server and client side when either side closes the connection.
 
 Example:
-```JAVASCRIPT
+```js
 client.on('close', function(code, reason, connection) {
     console.log('client with id', connection.id, 'closed because of', reason, code);
 });
@@ -59,7 +59,7 @@ client.on('close', function(code, reason, connection) {
 Is called whenever an uncaught erorr is thrown.
 
 Example:
-```JAVASCRIPT
+```js
 client.on('error', function(error) {
     console.log('there was a websocket error', error);
 });

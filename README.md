@@ -51,6 +51,11 @@ client.connect('ws://localhost:1234', function(err, connection) {
   else {
     console.log('client connected to server', connection);
   }
+  //here we can send a message or a request;
+  connection.send({ myNameIs : "bob" });
+  connection.request({ question : "what is your name?"}, function(err, reply) {
+    console.log('servers name is', reply.answer);
+  });
 });
 ```
 

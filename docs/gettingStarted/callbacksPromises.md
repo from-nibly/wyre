@@ -2,7 +2,7 @@
 In wyre anywhere you have a callback (not an event listener) you can use a promise instead.  We use jpromise for our promises but anything that fulfils the same api will do.  Here are 3 examples of using callbacks and promises on the same function.
 
 Callback:
-```JAVASCRIPT
+```js
 connection.request({}, function(err, reply, progress) {
   if(data) {
     console.log('we got a reply', reply);
@@ -17,7 +17,7 @@ connection.request({}, function(err, reply, progress) {
 ```
 
 Promise:
-```JAVASCRIPT
+```js
 connection.request({}).done(function(data){
   console.log('we got a reply', reply);
 }).fail(function(err) {
@@ -28,7 +28,7 @@ connection.request({}).done(function(data){
 ```
 
 Pre-built promise:
-```JAVASCRIPT
+```js
 var dfd = new p();
 dfd.done(function(data){
   console.log('we got a reply', reply);

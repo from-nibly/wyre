@@ -18,7 +18,7 @@ The codec determins how messages from the websocket as a String should be turned
 
 Default:
 
-```JAVASCRIPT
+```js
 server.use('codec',function(string) {
     return JSON.parse(string);
   }, function(message) {
@@ -31,7 +31,7 @@ The key determines how correlation keys will be set and got.
 
 Default:
 
-```JAVASCRIPT
+```js
 server.use('key', function(message) {
     return message.key;
   }, function(message, key) {
@@ -44,7 +44,7 @@ The direction determines which direction a message is going.  Valid directions a
 
 Default:
 
-```JAVASCRIPT
+```js
 server.use('direction', function(message) {
     return message.direction;
   }, function(message, direction) {
@@ -57,7 +57,7 @@ The type determines how to route messages.  Any string is a valid type.  This wi
 
 Default:
 
-```JAVASCRIPT
+```js
 server.use('type', function(message) {
     return message.type;
 });
