@@ -60,7 +60,7 @@ Example reply:
 ```
 
 Example:
-```json
+```js
 connection.request({}, function(err, reply, partial) {
   if(err) {
     console.log('there was an error', err);
