@@ -1,7 +1,7 @@
 #Client
 The client object is created when you call `new Client()`  this object manages the configuration of the connection to the server, deals with routing events, and inititates the connection to the server.
 
-```JSON
+```json
 {
   connect : [Function],
   on : [Function],
@@ -12,7 +12,7 @@ The client object is created when you call `new Client()`  this object manages t
 ##new Client([options])
 The constructor that takes an optional options argument.
 
-```JSON
+```json
 {
     logLevel : Integer||String
 }
@@ -31,13 +31,13 @@ Example: `'ws:\\localhost:1234'`
 `callback` a  [callback or defered object](gettingStarted/callbacksPromises/).  This will return an error or a [connection object](classes/connection) when the connection is complete.
 
 Example:
-```JAVASCRIPT
+```js
 client.connect('ws:\\localhost', function(err, connection) {
   if(err) {
     console.log('there was an error connecting to the server', err);
   }
   else {
-    console.log('connected to the server!, connection);
+    console.log('connected to the server!', connection);
   }
 });
 ```

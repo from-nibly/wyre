@@ -1,6 +1,6 @@
 #Connection
 A connection object that represents the connection to either the server or the client on the other side of the websocket.
-```JSON
+```json
 {
     id : [String],
     send : [Function],
@@ -23,7 +23,7 @@ This is used to keep track of different clients.
 `callback` : either a  [callback or defered object](gettingStarted/callbacksPromises/).  The callback is called once the message has been recieved on the other end.  It will call back with either an error or nothing.
 
 Example:
-```JAVASCRIPT
+```js
 connection.send({}, function(err) {
   if(err) {
     console.log('there was an error', err);
@@ -42,7 +42,7 @@ a function used to send a request message.  This is mostly a shortcut for adding
 `callback`: a [callback or defered object](gettingStarted/callbacksPromises/). The callback is called once a message with a `direction` property of `'REPLY'` has been sent back with a matching `key` property to the request message.  It will be called with an error, a reply, or a partial reply.  Only one reply or one error will be sent to the callback however an infinite number of partial replys may be sent to the callback.
 
 Example request:
-```JSON
+```json
 {
   "question" : "how are you doing?",
   "key" : "34825995-d7ee-434d-a665-1e62ad2e8a0e",
@@ -51,7 +51,7 @@ Example request:
 ```
 
 Example reply:
-```JSON
+```json
 {
   "answer" : "good, and you?",
   "key" : "34825995-d7ee-434d-a665-1e62ad2e8a0e",
@@ -60,7 +60,7 @@ Example reply:
 ```
 
 Example:
-```JSON
+```json
 connection.request({}, function(err, reply, partial) {
   if(err) {
     console.log('there was an error', err);
