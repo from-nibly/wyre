@@ -1,6 +1,8 @@
 [![Build Status](https://drone.io/github.com/from-nibly/wyre/status.png)](https://drone.io/github.com/from-nibly/wyre/latest)
 [![Join the chat at https://gitter.im/from-nibly/wyre](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/from-nibly/wyre?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 # wyre
+
+[![Join the chat at https://gitter.im/from-nibly/wyre](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/from-nibly/wyre?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 wyre is a websocket library that will change the way you use websockets.  Wyre allows you to send messages that require a response message to be sent. Wyre also allows you to filter messages based on the type of message which you specify.
 
 # Getting Started
