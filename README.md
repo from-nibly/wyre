@@ -1,11 +1,11 @@
 [![Build Status](https://drone.io/github.com/from-nibly/wyre/status.png)](https://drone.io/github.com/from-nibly/wyre/latest)
 [![Join the chat at https://gitter.im/from-nibly/wyre](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/from-nibly/wyre?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-# wyre
+#wyre
 wyre is a websocket library that will change the way you use websockets.  Wyre allows you to send messages that require a response message to be sent. Wyre also allows you to filter messages based on the type of message which you specify.
 
-# Getting Started
+#Getting Started
 
-## Server
+##Server
 ```js
 var Server = require('wyre').Server;
 var server = new Server();
@@ -16,28 +16,36 @@ server.listen({ port : 1234}, function(err) {
 });
 ```
 
-### here we can listen for new connections
+###here we can listen for new connections
 ```js
 server.on('connection', function(connection) {
     console.log('connection recieved');
 });
 ```
 
-### here we can listen for incoming messages
+###here we can listen for incoming messages
 ```js
 server.on('message', function(context) {
     console.log('got a message', context.message)
 });
 ```
 
-### here we can listen for messages where the message type is a tweet
+###here we can listen for messages where the message type is a tweet
 ```js
 server.on('message', 'tweet', function(context) {
     console.log('got a tweet', context.message);
 });
 ```
 
-## Client
+###here we can listen for a request and reply to it
+```js
+server.on('request', function(context) {
+  console.log('got a request', context.message);
+  context.reply({ answer : 'steve'});
+});
+```
+
+##Client
 Clients are very similar but you connect to a server differently
 ```js
 var Client = require('wyre').Client;
@@ -59,5 +67,5 @@ client.connect('ws://localhost:1234', function(err, connection) {
 });
 ```
 
-## READY FOR MORE?
-Head over to our [ReadTheDocs](http://wyre.readthedocs.org/en/latest/) for more information.
+##Ready for more?
+checkout our [wiki](https://github.com/from-nibly/wyre/wiki)!
