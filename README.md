@@ -69,3 +69,5 @@ client.connect('ws://localhost:1234', function(err, connection) {
 
 ##Ready for more?
 checkout our [wiki](https://github.com/from-nibly/wyre/wiki)!
+
+or checkout our gitter channel for questions [![Join the chat at https://gitter.im/from-nibly/wyre](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/from-nibly/wyre?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
