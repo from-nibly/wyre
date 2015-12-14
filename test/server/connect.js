@@ -13,8 +13,8 @@ var assert = require('assert'),
 describe('connect()', function() {
 
   it('should be able to recieve a connection from a client', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 2);
     var port = getPort();
 
@@ -28,7 +28,6 @@ describe('connect()', function() {
       client.connect('ws://localhost:' + port, function(err, connection) {
         assert(!err);
         assert(connection);
-        console.log('client connected');
         done();
       });
     }).fail(function(err) {
@@ -37,7 +36,7 @@ describe('connect()', function() {
   });
 
   it('should throw an error if connection cannot be established', function(done) {
-    var client = new Client();
+    var client = new Client({ logLevel : 0 });
     var port = getPort();
 
     client.connect('ws://localhost:' + port, function(err, connection) {

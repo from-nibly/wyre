@@ -13,8 +13,8 @@ var assert = require('assert'),
 describe('send()', function() {
 
   it('should be able to recieve a message from a client', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 2);
     var port = getPort();
 
@@ -43,8 +43,8 @@ describe('send()', function() {
   });
 
   it('should be able to send a message to a client', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 2);
     var port = getPort();
     var serverConnection;
@@ -75,8 +75,8 @@ describe('send()', function() {
   });
 
   it('should be able to send a typed message to a client', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 2);
     var port = getPort();
     var serverConnection;
@@ -109,8 +109,8 @@ describe('send()', function() {
   });
 
   it('should be able to send a typed message to a server', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 2);
     var port = getPort();
     var serverConnection;
@@ -143,8 +143,8 @@ describe('send()', function() {
   });
 
   it('should be able to send a number typed message to a server', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 2);
     var port = getPort();
     var serverConnection;
@@ -177,8 +177,8 @@ describe('send()', function() {
   });
 
   it('should be able to send a number typed message to a client', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 2);
     var port = getPort();
     var serverConnection;

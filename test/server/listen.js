@@ -13,7 +13,7 @@ var assert = require('assert'),
 describe('listen()', function() {
 
   it('should throw an error if there is no options object provided', function(done) {
-    var server = new Server();
+    var server = new Server({ logLevel : 0 });
     try {
       server.listen();
       done('should have thrown an error');
@@ -23,7 +23,7 @@ describe('listen()', function() {
   });
 
   it('should throw an error if options is not an object', function(done) {
-    var server = new Server();
+    var server = new Server({ logLevel : 0 });
     try {
       server.listen('testing');
       done('should have thrown an error');
@@ -33,7 +33,7 @@ describe('listen()', function() {
   });
 
   it('should throw an error if options does not have a port', function(done) {
-    var server = new Server();
+    var server = new Server({ logLevel : 0 });
     try {
       server.listen({});
       done('should have thrown an error');
@@ -43,7 +43,7 @@ describe('listen()', function() {
   });
 
   it('should not throw an error if options does have a port', function(done) {
-    var server = new Server();
+    var server = new Server({ logLevel : 0 });
     done = new ClosingDone(done, [server]);
     var port = getPort();
     try {

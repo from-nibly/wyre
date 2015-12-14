@@ -21,8 +21,8 @@ describe('use()', function () {
       done();
       message.reference = key;
     }
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var port = getPort();
     var done = new MultiDone(new ClosingDone(done, [server]), 7);
 
@@ -74,8 +74,8 @@ describe('use()', function () {
       done();
       message.reference = key;
     }
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var port = getPort();
     var done = new MultiDone(new ClosingDone(done, [server]), 7);
 
@@ -127,8 +127,8 @@ describe('use()', function () {
       done();
       message.foo = dir;
     }
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var port = getPort();
     var done = new MultiDone(new ClosingDone(done, [server]), 8);
     var serverConnection;
@@ -180,8 +180,8 @@ describe('use()', function () {
       done();
       message.foo = dir;
     }
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var port = getPort();
     var done = new MultiDone(new ClosingDone(done, [server]), 8);
     var serverConnection;
@@ -230,8 +230,8 @@ describe('use()', function () {
       done();
       return message.bar;
     }
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     server.use('type', typeGetter);
     client.use('type', typeGetter);
     var done = new MultiDone(new ClosingDone(done, [server]), 3);
@@ -271,8 +271,8 @@ describe('use()', function () {
       done();
       return message.bar;
     }
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     server.use('type', typeGetter);
     client.use('type', typeGetter);
     var done = new MultiDone(new ClosingDone(done, [server]), 3);

@@ -15,8 +15,8 @@ var assert = require('assert'),
 describe('partial()', function() {
 
   it('should be able to recieve a request from a client and send a partial reply', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 6);
     var port = getPort();
     var serverConnection;
@@ -65,8 +65,8 @@ describe('partial()', function() {
   });
 
   it('should be able to send a request to a client and send a partial reply', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 6);
     var port = getPort();
     var serverConnection;

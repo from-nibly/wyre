@@ -13,8 +13,8 @@ var assert = require('assert'),
 describe('error()', function() {
 
   it('should be able to recieve a request from a client and send an error reply', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 4);
     var port = getPort();
     var serverConnection;
@@ -55,8 +55,8 @@ describe('error()', function() {
   });
 
   it('should be able to send a request to a client and send an error reply', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 4);
     var port = getPort();
     var serverConnection;

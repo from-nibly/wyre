@@ -14,8 +14,8 @@ var assert = require('assert'),
 describe('request()', function() {
 
   it('should be able to recieve a request from a client and reply', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 4);
     var port = getPort();
     var serverConnection;
@@ -28,7 +28,7 @@ describe('request()', function() {
     server.on('request', function(context) {
       assert(context.message.test === 'ing');
       done();
-      context.reply({}).done(function() {
+      context.reply(context.message).done(function() {
         done();
       }).fail(function(err) {
         done(err);
@@ -43,7 +43,8 @@ describe('request()', function() {
         assert(connection);
         connection.request({
           test: 'ing'
-        }).done(function() {
+        }).done(function(reply) {
+          assert(reply.message.test === 'ing');
           done();
         }).fail(function(err) {
           done(err);
@@ -55,8 +56,8 @@ describe('request()', function() {
   });
 
   it('should be able to send a request to a client and reply', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0});
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 4);
     var port = getPort();
     var serverConnection;
@@ -69,7 +70,7 @@ describe('request()', function() {
     client.on('request', function(context) {
       assert(context.message.test === 'ing');
       done();
-      context.reply({}).done(function() {
+      context.reply(context.message).done(function() {
         done();
       }).fail(function(err) {
         done(err);
@@ -84,7 +85,8 @@ describe('request()', function() {
         assert(connection);
         serverConnection.request({
           test: 'ing'
-        }).done(function() {
+        }).done(function(reply) {
+          assert(reply.message.test === 'ing');
           done();
         }).fail(function(err) {
           done(err);
@@ -96,8 +98,8 @@ describe('request()', function() {
   });
 
   it('should be able to recieve a typed request from a client and reply', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0});
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 4);
     var port = getPort();
     var serverConnection;
@@ -110,7 +112,7 @@ describe('request()', function() {
     server.on('request', 'testing', function(context) {
       assert(context.message.test === 'ing');
       done();
-      context.reply({}).done(function() {
+      context.reply(context.message).done(function() {
         done();
       }).fail(function(err) {
         done(err);
@@ -126,7 +128,9 @@ describe('request()', function() {
         connection.request({
           test: 'ing',
           type: 'testing'
-        }).done(function() {
+        }).done(function(reply) {
+          assert(reply.message.test === 'ing');
+          assert(reply.message.type === 'testing');
           done();
         }).fail(function(err) {
           done(err);
@@ -138,8 +142,8 @@ describe('request()', function() {
   });
 
   it('should be able to recieve a typed request from a client and reply', function(done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0});
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 4);
     var port = getPort();
     var serverConnection;
@@ -152,7 +156,7 @@ describe('request()', function() {
     client.on('request', 'testing', function(context) {
       assert(context.message.test === 'ing');
       done();
-      context.reply({}).done(function() {
+      context.reply(context.message).done(function() {
         done();
       }).fail(function(err) {
         done(err);
@@ -168,7 +172,9 @@ describe('request()', function() {
         serverConnection.request({
           test: 'ing',
           type: 'testing'
-        }).done(function() {
+        }).done(function(reply) {
+          assert(reply.message.test === 'ing');
+          assert(reply.message.type === 'testing');
           done();
         }).fail(function(err) {
           done(err);

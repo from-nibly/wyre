@@ -13,8 +13,8 @@ var assert = require('assert'),
 
 describe('close()', function () {
   it('should call the servers on close function when the client closes', function (done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 5);
     var port = getPort();
     var connectionId;
@@ -60,8 +60,8 @@ describe('close()', function () {
   });
 
   it('should call the clients on close function when the server closes', function (done) {
-    var server = new Server();
-    var client = new Client();
+    var server = new Server({ logLevel : 0 });
+    var client = new Client({ logLevel : 0 });
     var done = new MultiDone(new ClosingDone(done, [server]), 5);
     var port = getPort();
     var connectionId;
