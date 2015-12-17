@@ -23,5 +23,6 @@
     "prepublish": "npm run browserify && npm run uglify",
     "browserTest": "node test/browser/setup.js",
     "test": "./node_modules/.bin/mocha -R nyan --recursive test/server"
-  }
+  },
+  "tonicExampleFilename" : "tonicExample.js"
 }
