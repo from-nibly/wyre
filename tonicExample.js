@@ -1,4 +1,4 @@
-var Server = require('./lib/index.js').Server;
+var Server = require('wyre').Server;
 var server = new Server();
 
 var names = {};
@@ -24,7 +24,7 @@ server.listen({ port : 1234 }, function(err) {
   }
 });
 
-var Client = require('./lib/index.js').Client;
+var Client = require('wyre').Client;
 var client = new Client();
 
 client.connect('ws://localhost:1234', function(err, connection) {
