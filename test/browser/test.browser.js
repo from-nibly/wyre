@@ -33,14 +33,14 @@ describe('Browser', function () {
   });
   it('should be able to send a request and get a reply', function (done) {
     conn.request({ key : 'testing' }, function (err, reply) {
-      assert(reply.key === 'testing');
+      assert(reply.message.key === 'testing');
       done(err);
     });
   });
   it('should be able to send a request and get an error', function (done) {
     conn.request({ key : 'testing1', type : 'error' }, function (err, reply) {
       assert(!reply);
-      assert(err.key === 'testing1');
+      assert(err.message.key === 'testing1');
       done();
     });
   });
@@ -49,8 +49,7 @@ describe('Browser', function () {
       assert(!reply);
       assert(!err);
       assert(partial);
-      console.log('partial test', partial);
-      assert(partial.key === 'testing2');
+      assert(partial.message.key === 'testing2');
       done();
     });
   });
