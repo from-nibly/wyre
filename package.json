@@ -1,6 +1,6 @@
 {
   "name": "wyre",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "The new way to do websockets",
   "repository": "http://github.com/from-nibly/wyre",
   "license": "MIT",
